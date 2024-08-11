@@ -11,7 +11,7 @@ class deletedlog(commands.Cog):
     async def on_message_delete(self, message):
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S %p")
         if message.author.name is not self:
-            file3 = open(r"D:\BFB_Logs\Deleted_user.txt", "a")
+            file3 = open(r"\BFB_Logs\Deleted_user.txt", "a")
             file3.write(f"**NAME: {message.author.name} CONTENT:''{message.content}'' TIME: {now}\n")
 
     

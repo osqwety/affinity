@@ -11,7 +11,7 @@ class reglog(commands.Cog):
     async def on_message(self, message):
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S %p")
         try:
-            file1 = open(r"D:\BFB_Logs\Regular_Log.txt", "a")
+            file1 = open(r"\BFB_Logs\Regular_Log.txt", "a")
             file1.write(f"NAME: {message.author} CONTENT:''{message.content}'' TIME: {now}\n")
         except UnicodeEncodeError:
             file1.write(f"NAME: {message.author} CONTENT:'Emoji(exception)' TIME: {now}\n")

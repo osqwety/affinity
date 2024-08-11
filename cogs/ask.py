@@ -3,7 +3,7 @@ from discord.ext import commands
 import sys
 import time
 
-sys.path.append(r"*\bot\ai_request.py")
+sys.path.append(r"*\BFB-Bot\ai_request.py")
 from ai_request import main_ai2
 
 class ask(commands.Cog):
@@ -19,10 +19,10 @@ class ask(commands.Cog):
             print(y[5:])
             x = main_ai2(y[5:])
             if len(x) >= 2000:
-                f1 = open(r"C:\Users\lambo\OneDrive\Desktop\bot\AI_Response.txt", "w")
+                f1 = open(r"\BFB-Bot\AI_Response.txt", "w")
                 f1.write(x)
                 f1.close()
-                await ctx.reply(file=discord.File(r"C:\Users\lambo\OneDrive\Desktop\bot\AI_Response.txt"))
+                await ctx.reply(file=discord.File(r"\BFB-Bot\AI_Response.txt"))
             else:
                 await ctx.reply(x)
         #await message.author.send(f"{x}")

@@ -11,7 +11,7 @@ class chatfilter(commands.Cog):
     async def on_message(self, message):
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S %p")
         chal2 = self.bot.get_channel(1136976877194584134)
-        blocked_words = ["shit", "nigger","shii","shi","schit"]
+        blocked_words = ["shit","shii","shi","schit"]
         timings = ["am", "pm"]
         message_lower = "".join(dict.fromkeys(message.content.lower()))
         for word in blocked_words:
