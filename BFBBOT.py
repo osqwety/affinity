@@ -52,14 +52,14 @@ async def unloadall(ctx):
 
 @bot.command()
 async def reloadall(ctx):
-    if ctx.author.id == host_id:
-        for filename in os.listdir('./cogs' ):
-            if filename.endswith('.py'):
-                await bot.unload_extension(f'cogs.{filename[:-3]}')
-                await bot.load_extension(f'cogs.{filename[:-3]}')
-        await ctx.send("Reloaded Everything")
-    else:
+    if ctx.author.id != host_id:
         await ctx.reply("no perms, contact admin")
+    for filename in os.listdir('./cogs' ):
+        if filename.endswith('.py'):
+            await bot.unload_extension(f'cogs.{filename[:-3]}')
+            await bot.load_extension(f'cogs.{filename[:-3]}')
+        await ctx.send("Reloaded Everything")
+        
 
 @bot.command()
 async def loadall(ctx):
