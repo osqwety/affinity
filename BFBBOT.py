@@ -63,13 +63,13 @@ async def reloadall(ctx):
 
 @bot.command()
 async def loadall(ctx):
-    if ctx.author.id == host_id:
+    if ctx.author.id != host_id:
+        await ctx.reply("no perms, contact admin")
+    else:
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py'):
                 await bot.load_extension(f'cogs.{filename[:-3]}')
-        await ctx.send("loaded Everything")
-    else:
-        await ctx.reply("no perms, contact admin")
+        await ctx.send("loaded Everything")            
 
 @bot.group(invoke_without_command=True)
 async def help(ctx):
@@ -122,9 +122,9 @@ async def test(ctx):
 @bot.event
 async def setup_hook():
     for filename in os.listdir('./cogs'):
-        if filename.endswith('.py'):
-            if filename == "ai_request.py":
+        if filename == "ai_request.py":
                 continue
+        if filename.endswith('.py'):
             await bot.load_extension(f'cogs.{filename[:-3]}')
 
 
